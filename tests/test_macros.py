@@ -1,3 +1,4 @@
+# type: ignore
 from unittest.mock import patch
 
 from ibex_non_ca_helpers.macros import get_macro_values

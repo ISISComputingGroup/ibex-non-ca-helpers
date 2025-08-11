@@ -58,7 +58,7 @@ def dehex_and_decompress_waveform(value: List[int]) -> bytes:
     return dehex_and_decompress(bytes_rep)
 
 
-def dehex_decompress_and_dejson(value: str | bytes) -> Any:  # noqa: ANN401
+def dehex_decompress_and_dejson(value: bytes) -> Any:  # noqa: ANN401
     """
     Convert string from zipped hexed json to a python representation
     :param value: value to convert

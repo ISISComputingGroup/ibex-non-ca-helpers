@@ -1,3 +1,4 @@
+# type: ignore
 import pytest
 
 from ibex_non_ca_helpers.pv import waveform_to_string
@@ -7,7 +8,7 @@ def check_waveform(input_value, expected_value):
     assert expected_value in waveform_to_string(input_value)
 
 
-def create_waveform_from_list(input_list):
+def create_waveform_from_list(input_list) -> str:
     if len(input_list) != 0 and isinstance(input_list[0], str):
         return "".join(input_list)
     return "".join([chr(i) for i in input_list])

@@ -1,3 +1,5 @@
+# type: ignore
+
 import pytest
 
 from ibex_non_ca_helpers.hex import (

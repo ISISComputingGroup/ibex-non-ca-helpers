@@ -1,17 +1,12 @@
-from typing import List
+from typing import Iterable
 
-
-def waveform_to_string(data: List[int]) -> str:
-    """
-    Args:
-        data: waveform as null terminated string
-
-    Returns: waveform as a sting
-
-    """
-    output = str()
+def waveform_to_string(data: Iterable[int | str]) -> str:
+    output = ""
     for i in data:
         if i == 0:
             break
-        output += chr(i)
+        if isinstance(i, str):
+            output += i
+        else:
+            output += str(chr(i))
     return output

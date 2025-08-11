@@ -1,5 +1,6 @@
 from typing import Iterable
 
+
 def waveform_to_string(data: Iterable[int | str]) -> str:
     output = ""
     for i in data:

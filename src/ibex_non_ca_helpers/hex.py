@@ -1,8 +1,10 @@
 import binascii
-import zlib
 import json
-from ibex_non_ca_helpers.pv import waveform_to_string
+import zlib
 from typing import Any, List
+
+from ibex_non_ca_helpers.pv import waveform_to_string
+
 
 def compress_and_hex(value: str) -> bytes:
     """Compresses the inputted string and encodes it as hex.
@@ -12,7 +14,7 @@ def compress_and_hex(value: str) -> bytes:
     Returns:
         bytes : A compressed and hexed version of the inputted string
     """
-    assert type(value) == str, (
+    assert type(value) is str, (
         "Non-str argument passed to compress_and_hex, maybe Python 2/3 compatibility issue\n"
         "Argument was type {} with value {}".format(value.__class__.__name__, value)
     )
@@ -29,7 +31,7 @@ def dehex_and_decompress(value: bytes) -> bytes:
     Returns:
         bytes : A decompressed version of the inputted string
     """
-    assert type(value) == bytes, (
+    assert type(value) is bytes, (
         "Non-bytes argument passed to dehex_and_decompress, maybe Python 2/3 compatibility issue\n"
         "Argument was type {} with value {}".format(value.__class__.__name__, value)
     )
@@ -37,7 +39,8 @@ def dehex_and_decompress(value: bytes) -> bytes:
 
 
 def dehex_and_decompress_waveform(value: List[int]) -> bytes:
-    """Decompresses the inputted waveform, assuming it is a array of integers representing characters (null terminated).
+    """Decompresses the inputted waveform,
+     assuming it is an array of integers representing characters (null terminated).
 
     Args:
         value (list[int]): The string to be decompressed
@@ -45,7 +48,7 @@ def dehex_and_decompress_waveform(value: List[int]) -> bytes:
     Returns:
         bytes : A decompressed version of the inputted string
     """
-    assert type(value) == list, (
+    assert type(value) is list, (
         "Non-list argument passed to dehex_and_decompress_waveform\n"
         "Argument was type {} with value {}".format(value.__class__.__name__, value)
     )
@@ -53,6 +56,7 @@ def dehex_and_decompress_waveform(value: List[int]) -> bytes:
     unicode_rep = waveform_to_string(value)
     bytes_rep = unicode_rep.encode("ascii")
     return dehex_and_decompress(bytes_rep)
+
 
 def dehex_decompress_and_dejson(value: str | bytes) -> Any:  # noqa: ANN401
     """

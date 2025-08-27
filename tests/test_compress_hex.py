@@ -2,7 +2,7 @@
 
 import pytest
 
-from ibex_non_ca_helpers.hex import (
+from ibex_non_ca_helpers.compress_hex import (
     compress_and_hex,
     dehex_and_decompress,
     dehex_and_decompress_waveform,

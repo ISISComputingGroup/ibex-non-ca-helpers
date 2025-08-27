@@ -11,5 +11,4 @@ def get_macro_values() -> Dict[str, str]:
     """
     macros = json.loads(os.environ.get("MACROS", "{}"))
     macros = {key: value for (key, value) in macros.items()}
-    print("Defined macros: " + str(macros))
     return macros

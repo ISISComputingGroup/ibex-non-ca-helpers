@@ -1,4 +1,4 @@
-from typing import Iterable
+from collections.abc import Iterable
 
 
 def waveform_to_string(data: Iterable[int | str]) -> str:

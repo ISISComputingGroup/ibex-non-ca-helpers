@@ -1,9 +1,8 @@
 import json
 import os
-from typing import Dict
 
 
-def get_macro_values() -> Dict[str, str]:
+def get_macro_values() -> dict[str, str]:
     """
     Parse macro environment JSON into dict. To make this work use the icpconfigGetMacros program.
 

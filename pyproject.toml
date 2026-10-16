@@ -7,8 +7,9 @@ name = "ibex-non-ca-helpers"
 dynamic = ["version"]
 description = "Python helpers for IBEX which do not rely on channel access"
 readme = "README.md"
-requires-python = ">=3.11"
+requires-python = ">=3.12"
 dependencies = [
+  "numpy"
 ]
 
 authors = [

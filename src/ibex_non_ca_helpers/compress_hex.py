@@ -1,7 +1,7 @@
 import binascii
 import json
 import zlib
-from typing import Any, List
+from typing import Any
 
 from ibex_non_ca_helpers.pv import waveform_to_string
 
@@ -16,7 +16,7 @@ def compress_and_hex(value: str) -> bytes:
     """
     assert type(value) is str, (
         "Non-str argument passed to compress_and_hex, maybe Python 2/3 compatibility issue\n"
-        "Argument was type {} with value {}".format(value.__class__.__name__, value)
+        f"Argument was type {value.__class__.__name__} with value {value}"
     )
     compr = zlib.compress(bytes(value, "utf-8"))
     return binascii.hexlify(compr)
@@ -33,12 +33,12 @@ def dehex_and_decompress(value: bytes) -> bytes:
     """
     assert type(value) is bytes, (
         "Non-bytes argument passed to dehex_and_decompress, maybe Python 2/3 compatibility issue\n"
-        "Argument was type {} with value {}".format(value.__class__.__name__, value)
+        f"Argument was type {value.__class__.__name__} with value {value}"
     )
     return zlib.decompress(binascii.unhexlify(value))
 
 
-def dehex_and_decompress_waveform(value: List[int]) -> bytes:
+def dehex_and_decompress_waveform(value: list[int]) -> bytes:
     """Decompresses the inputted waveform,
      assuming it is an array of integers representing characters (null terminated).
 
@@ -50,7 +50,7 @@ def dehex_and_decompress_waveform(value: List[int]) -> bytes:
     """
     assert type(value) is list, (
         "Non-list argument passed to dehex_and_decompress_waveform\n"
-        "Argument was type {} with value {}".format(value.__class__.__name__, value)
+        f"Argument was type {value.__class__.__name__} with value {value}"
     )
 
     unicode_rep = waveform_to_string(value)
